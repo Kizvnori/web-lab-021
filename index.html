@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>เปรม นมสด | นมสด ขนมปังปิ้ง และบรรยากาศสุดชิลล์ยามค่ำคืน</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Kanit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            kanit: ['Kanit', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              200: '#bae6fd',
+              300: '#7dd3fc',
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+              800: '#075985',
+              900: '#0c4a6e',
+            },
+            milk: {
+              cream: '#FFFDF9',
+              warm: '#FDF8F0',
+              accent: '#F59E0B',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Kanit', sans-serif;
+    }
+    .glass-nav {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .hero-gradient {
+      background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.15), transparent 40%),
+                  radial-gradient(circle at bottom left, rgba(245, 158, 11, 0.1), transparent 40%);
+    }
+  </style>
+</head>
+<body class="bg-[#fafaf9] text-gray-800 antialiased selection:bg-brand-200 selection:text-brand-900">
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-gray-100 transition-all duration-300 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo Brand -->
+        <a href="#home" class="flex items-center gap-3 group">
+          <div class="relative w-12 h-12 rounded-full overflow-hidden shadow-md ring-2 ring-brand-300 group-hover:scale-105 transition transform">
+            <img src="./logo.png" alt="โลโก้ เปรม นมสด" class="w-full h-full object-cover">
+          </div>
+          <div>
+            <div class="flex items-center gap-1.5">
+              <span class="text-2xl font-bold tracking-tight text-gray-900">เปรม</span>
+              <span class="text-2xl font-bold tracking-tight text-brand-600">นมสด</span>
+            </div>
+            <p class="text-xs text-gray-500 font-light">Fresh Milk & Cozy Toast</p>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-700">
+          <a href="#home" class="hover:text-brand-600 transition">หน้าแรก</a>
+          <a href="#highlights" class="hover:text-brand-600 transition">จุดเด่น</a>
+          <a href="#menu" class="hover:text-brand-600 transition">เมนูยอดฮิต</a>
+          <a href="#atmosphere" class="hover:text-brand-600 transition">บรรยากาศร้าน</a>
+          <a href="#map-section" class="hover:text-brand-600 transition">แผนที่ & ติดต่อ</a>
+        </nav>
+
+        <!-- Right Action Button & Hours Badge -->
+        <div class="hidden sm:flex items-center gap-3">
+          <div class="flex items-center gap-2 bg-emerald-50 text-emerald-700 px-3 py-1.5 rounded-full text-xs font-medium border border-emerald-200">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>เปิด 17:00 - 22:00 น.</span>
+          </div>
+          <!-- Facebook Button -->
+          <a href="https://www.facebook.com/search/top?q=เปรม%20นมสด" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 bg-[#1877F2] hover:bg-[#0c63d4] text-white px-3.5 py-2 rounded-full text-xs font-medium shadow-sm shadow-blue-500/20 transition transform hover:-translate-y-0.5">
+            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            <span>เพจ เปรม นมสด</span>
+          </a>
+          <a href="#menu" class="bg-brand-600 hover:bg-brand-700 text-white px-4 py-2 rounded-full text-xs font-medium shadow-md shadow-brand-500/20 hover:shadow-lg transition">
+            ดูเมนู
+          </a>
+        </div>
+
+        <!-- Mobile Menu Hamburger -->
+        <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100 focus:outline-none" aria-label="เปิดเมนู">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu Dropdown -->
+    <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-gray-100 px-4 pt-3 pb-6 space-y-3">
+      <a href="#home" class="mobile-link block px-3 py-2 rounded-md font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-600">หน้าแรก</a>
+      <a href="#highlights" class="mobile-link block px-3 py-2 rounded-md font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-600">จุดเด่น</a>
+      <a href="#menu" class="mobile-link block px-3 py-2 rounded-md font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-600">เมนูยอดฮิต</a>
+      <a href="#atmosphere" class="mobile-link block px-3 py-2 rounded-md font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-600">บรรยากาศร้าน</a>
+      <a href="#map-section" class="mobile-link block px-3 py-2 rounded-md font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-600">แผนที่ & ติดต่อ</a>
+      <div class="pt-2 space-y-2">
+        <a href="https://www.facebook.com/search/top?q=เปรม%20นมสด" target="_blank" rel="noopener noreferrer" class="mobile-link flex items-center justify-center gap-2 w-full bg-[#1877F2] text-white py-2.5 rounded-xl font-medium shadow">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          <span>เข้าสู่เพจ Facebook เปรม นมสด</span>
+        </a>
+        <a href="#menu" class="mobile-link block w-full text-center bg-brand-600 text-white py-2.5 rounded-xl font-medium shadow">
+          ดูเมนูอาหาร & ราคา
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= HERO SECTION ================= -->
+  <section id="home" class="relative pt-32 pb-20 md:pt-40 md:pb-28 hero-gradient overflow-hidden">
+    <!-- Decorative background elements -->
+    <div class="absolute -top-24 -right-24 w-96 h-96 bg-brand-200/40 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute top-1/2 -left-24 w-80 h-80 bg-amber-100/60 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Column: Copywriting -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          
+          <div class="inline-flex items-center gap-2 bg-brand-50 border border-brand-200 px-4 py-1.5 rounded-full text-brand-700 text-sm font-medium">
+            <i data-lucide="sparkles" class="w-4 h-4 text-brand-500"></i>
+            <span>ร้านนมสดบรรยากาศชิลล์ยามค่ำคืน</span>
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+            เติมนม เติมใจ <br class="hidden sm:inline">
+            แฮงก์เอาต์ฟีลชิลล์ที่ <br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 via-sky-500 to-amber-500">
+              "เปรม นมสด"
+            </span>
+          </h1>
+
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed">
+            จุดนัดพบของความสุขยามค่ำคืน ดื่มด่ำรสชาตินมสดแท้หอมละมุน ขนมปังปิ้งเตาร้อนกรอบนอกนุ่มใน 
+            พร้อมของทานเล่นหลากหลาย ในบรรยากาศสวนรับลมเย็นใต้แสงไฟวอร์มไลท์สุดอบอุ่น
+          </p>
+
+          <!-- Highlights Badges -->
+          <div class="pt-2 flex flex-wrap justify-center lg:justify-start gap-4 text-sm text-gray-600 font-medium">
+            <div class="flex items-center gap-2 bg-white px-3.5 py-2 rounded-xl shadow-sm border border-gray-100">
+              <i data-lucide="clock" class="w-4 h-4 text-amber-500"></i>
+              <span>เปิด 17:00 - 22:00 น.</span>
+            </div>
+            <div class="flex items-center gap-2 bg-white px-3.5 py-2 rounded-xl shadow-sm border border-gray-100">
+              <i data-lucide="tag" class="w-4 h-4 text-emerald-500"></i>
+              <span>เริ่มต้นเพียง 12.-</span>
+            </div>
+            <div class="flex items-center gap-2 bg-white px-3.5 py-2 rounded-xl shadow-sm border border-gray-100">
+              <i data-lucide="coffee" class="w-4 h-4 text-brand-500"></i>
+              <span>นมสดแท้ 100%</span>
+            </div>
+          </div>
+
+          <!-- CTA Buttons -->
+          <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">
+            <a href="#menu" class="w-full sm:w-auto text-center bg-brand-600 hover:bg-brand-700 text-white font-medium px-6 py-3.5 rounded-full shadow-lg shadow-brand-500/25 transition transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
+              <i data-lucide="utensils" class="w-4 h-4"></i>
+              <span>เลือกชมเมนูแนะนำ</span>
+            </a>
+            <a href="#map-section" class="w-full sm:w-auto text-center bg-white hover:bg-gray-50 text-gray-800 font-medium px-6 py-3.5 rounded-full border border-gray-200 shadow-sm transition flex items-center justify-center gap-2">
+              <i data-lucide="map-pin" class="w-4 h-4 text-rose-500"></i>
+              <span>ดูแผนที่ร้าน</span>
+            </a>
+            <a href="https://www.facebook.com/search/top?q=เปรม%20นมสด" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto text-center bg-[#1877F2] hover:bg-[#1466d3] text-white font-medium px-6 py-3.5 rounded-full shadow-md shadow-blue-500/20 transition transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              <span>เพจ Facebook ร้าน</span>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Visual Showcase -->
+        <div class="lg:col-span-5 relative">
+          <div class="relative mx-auto max-w-md lg:max-w-none">
+            
+            <!-- Main Hero Card: Drink & Toast -->
+            <div class="relative rounded-3xl overflow-hidden shadow-2xl ring-1 ring-black/5 bg-white transform hover:rotate-0 transition duration-500">
+              <img src="./เมนูร้าน/492846847_2529634777375869_7035050521733813971_n.jpg" alt="ปังเย็นภูเขาไฟ และ ปังปิ้งเนยนม เปรม นมสด" class="w-full h-80 sm:h-96 object-cover hover:scale-105 transition duration-700">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex flex-col justify-end p-6 text-white">
+                <span class="inline-block bg-brand-500 text-xs uppercase tracking-wider font-semibold px-2.5 py-1 rounded-md mb-2 w-max">
+                  Signature Menu
+                </span>
+                <h3 class="text-xl font-bold">ปังเย็นภูเขาไฟ & ปังปิ้งเนยนม</h3>
+                <p class="text-sm text-gray-200 font-light">ความหวานละมุนที่ลงตัว ทานคู่กับเครื่องดื่มเย็นชื่นใจ</p>
+              </div>
+            </div>
+
+            <!-- Floating Badge Card 1: Vintage Mug -->
+            <div class="absolute -bottom-6 -left-6 bg-white p-3.5 rounded-2xl shadow-xl border border-gray-100 flex items-center gap-3 hidden sm:flex max-w-[240px] animate-bounce" style="animation-duration: 4s;">
+              <img src="./เมนูร้าน/492412841_2527023350970345_4918805182070823305_n.jpg" class="w-12 h-12 rounded-xl object-cover" alt="นมสดร้อนแก้วสังกะสี">
+              <div>
+                <p class="text-xs text-gray-400 font-medium">เอกลักษณ์วินเทจ</p>
+                <p class="text-sm font-bold text-gray-800">นมร้อนแก้วเคลือบ</p>
+                <p class="text-xs text-brand-600 font-semibold">ร้อน 20.-</p>
+              </div>
+            </div>
+
+            <!-- Floating Badge Card 2: Logo Sticker Mascot -->
+            <div class="absolute -top-6 -right-6 bg-white p-3 rounded-2xl shadow-xl border border-gray-100 flex items-center gap-3 hidden sm:flex">
+              <img src="./logo.png" class="w-12 h-12 rounded-full object-cover ring-2 ring-brand-300" alt="โลโก้">
+              <div>
+                <p class="text-xs font-semibold text-gray-800">ยินดีต้อนรับครับ!</p>
+                <p class="text-xs text-gray-500">เปรม นมสด สาขาหลัก</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= HIGHLIGHTS / WHY CHOOSE US ================= -->
+  <section id="highlights" class="py-20 bg-white border-y border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto space-y-3 mb-16">
+        <span class="text-brand-600 font-semibold text-sm uppercase tracking-wider">ทำไมต้องมาที่นี่</span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900">เสน่ห์ความอร่อย ที่ทำให้คุณเปรมใจ</h2>
+        <p class="text-gray-500 font-light">มากกว่าแค่ร้านนม คือพื้นที่พักผ่อนหย่อนใจและเติมพลังบวกหลังเลิกเรียน เลิกงาน</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        
+        <!-- Feature 1 -->
+        <div class="bg-[#fcfbf9] p-8 rounded-3xl border border-gray-100 hover:border-brand-300 hover:shadow-xl hover:shadow-brand-500/5 transition duration-300 group">
+          <div class="w-14 h-14 rounded-2xl bg-brand-100 text-brand-600 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-brand-600 group-hover:text-white transition duration-300">
+            <i data-lucide="milk" class="w-7 h-7"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">นมสดแท้ 100%</h3>
+          <p class="text-gray-600 text-sm font-light leading-relaxed">
+            ใช้นมสดแท้เคี่ยวอุ่นกำลังดี หอมมัน กลมกล่อม เลือกได้ทั้งแบบ ร้อน, เย็น หรือปั่นชื่นใจ
+          </p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="bg-[#fcfbf9] p-8 rounded-3xl border border-gray-100 hover:border-amber-300 hover:shadow-xl hover:shadow-amber-500/5 transition duration-300 group">
+          <div class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-white transition duration-300">
+            <i data-lucide="flame" class="w-7 h-7"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">ปังปิ้งเตาร้อนหอมเนย</h3>
+          <p class="text-gray-600 text-sm font-light leading-relaxed">
+            ขนมปังปิ้งผิวกรอบ เนื้อในนุ่มฟู ทาเนยชุ่มฉ่ำ ราดช็อกโกแลตเข้มข้น ไมโล หรือนมข้นหวานเยิ้มๆ
+          </p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="bg-[#fcfbf9] p-8 rounded-3xl border border-gray-100 hover:border-sky-300 hover:shadow-xl hover:shadow-sky-500/5 transition duration-300 group">
+          <div class="w-14 h-14 rounded-2xl bg-sky-100 text-sky-600 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-sky-600 group-hover:text-white transition duration-300">
+            <i data-lucide="moon-star" class="w-7 h-7"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">บรรยากาศ Night Vibe</h3>
+          <p class="text-gray-600 text-sm font-light leading-relaxed">
+            พื้นที่โปร่งโล่ง ลมพัดสบาย ประดับแสงไฟปิงปองระยิบระยับ นั่งคุยกับแก๊งเพื่อนเพลินยันดึก
+          </p>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="bg-[#fcfbf9] p-8 rounded-3xl border border-gray-100 hover:border-emerald-300 hover:shadow-xl hover:shadow-emerald-500/5 transition duration-300 group">
+          <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-emerald-600 group-hover:text-white transition duration-300">
+            <i data-lucide="badge-percent" class="w-7 h-7"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">สบายกระเป๋า สบายใจ</h3>
+          <p class="text-gray-600 text-sm font-light leading-relaxed">
+            ราคาน่ารักถูกใจวัยเรียน วัยทำงาน ขนมปังปิ้งเริ่มเพียง 12.- เครื่องดื่มเริ่ม 20.- สั่งได้เต็มโต๊ะ
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= MENU SECTION ================= -->
+  <section id="menu" class="py-20 bg-[#fafaf9]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        <div class="space-y-2">
+          <span class="text-brand-600 font-semibold text-sm uppercase tracking-wider">Our Favorite Menu</span>
+          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900">เมนูแนะนำประจำร้าน</h2>
+          <p class="text-gray-500 font-light">คัดสรรเมนูสุดฮิตที่ใครมาก็ต้องสั่ง อร่อย สดใหม่ เสิร์ฟร้อนๆ ทุกจาน</p>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="mt-6 md:mt-0 flex flex-wrap gap-2" id="filterContainer">
+          <button data-filter="all" class="filter-btn active bg-brand-600 text-white px-5 py-2 rounded-full text-sm font-medium shadow-sm transition">
+            ทั้งหมด
+          </button>
+          <button data-filter="drinks" class="filter-btn bg-white hover:bg-gray-100 text-gray-700 px-5 py-2 rounded-full text-sm font-medium border border-gray-200 transition">
+            เครื่องดื่มนม & โซดา
+          </button>
+          <button data-filter="toast" class="filter-btn bg-white hover:bg-gray-100 text-gray-700 px-5 py-2 rounded-full text-sm font-medium border border-gray-200 transition">
+            ขนมปังปิ้ง & ปังเย็น
+          </button>
+          <button data-filter="snack" class="filter-btn bg-white hover:bg-gray-100 text-gray-700 px-5 py-2 rounded-full text-sm font-medium border border-gray-200 transition">
+            ของทานเล่น
+          </button>
+        </div>
+      </div>
+
+      <!-- Menu Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="menuGrid">
+        
+        <!-- Item 1: นมสดเย็น / นมชมพู -->
+        <div class="menu-card" data-category="drinks">
+          <div class="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition duration-300 flex flex-col h-full group">
+            <div class="relative h-60 overflow-hidden bg-gray-100">
+              <img src="./เมนูร้าน/493473120_2528534147485932_1438962868243656304_n.jpg" alt="นมชมพูหวานละมุน Mason Jar" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+              <span class="absolute top-3 right-3 bg-brand-600 text-white text-xs font-semibold px-3 py-1 rounded-full shadow">
+                เย็น 25.-
+              </span>
+            </div>
+            <div class="p-5 flex-1 flex flex-col justify-between">
+              <div>
+                <span class="text-xs font-medium text-pink-500 bg-pink-50 px-2 py-0.5 rounded-md">เครื่องดื่มยอดนิยม</span>
+                <h3 class="text-lg font-bold text-gray-900 mt-2">นมชมพูหวานละมุน</h3>
+                <p class="text-xs text-gray-500 font-light mt-1">นมสดแท้ผสมน้ำหวานสละ หอมหวานกำลังดี เสิร์ฟในโหลแก้ว Mason Jar พร้อมสติกเกอร์ร้าน</p>
+              </div>
+              <div class="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between text-xs text-gray-500">
+                <span>ขนาดแก้วเสิร์ฟพิเศษ</span>
+                <span class="font-bold text-gray-900">25 - 30 บาท</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 2: นมสดร้อนแก้วสังกะสีวินเทจ -->
+        <div class="menu-card" data-category="drinks">
+          <div class="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition duration-300 flex flex-col h-full group">
+            <div class="relative h-60 overflow-hidden bg-gray-100">
+              <img src="./เมนูร้าน/492412841_2527023350970345_4918805182070823305_n.jpg" alt="นมสดร้อนแก้ววินเทจ" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+              <span class="absolute top-3 right-3 bg-amber-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow">
+                ร้อน 20.-
+              </span>
+            </div>
+            <div class="p-5 flex-1 flex flex-col justify-between">
+              <div>
+                <span class="text-xs font-medium text-amber-600 bg-amber-50 px-2 py-0.5 rounded-md">Signature Vintage</span>
+                <h3 class="text-lg font-bold text-gray-900 mt-2">นมสดร้อนแก้วเคลือบ</h3>
+                <p class="text-xs text-gray-500 font-light mt-1">นมสดต้มร้อนๆ อุ่นท้อง เสิร์ฟในแก้วสังกะสีเคลือบโบราณสุดคลาสสิก ดื่มยามค่ำคืนสบายใจ</p>
+              </div>
+              <div class="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between text-xs text-gray-500">
+                <span>เสิร์ฟร้อนอุ่นสบาย</span>
+                <span class="font-bold text-gray-900">20 บาท</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 3: ปังปิ้งช็อกโกแลต -->
+        <div class="menu-card" data-category="toast">
+          <div class="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition duration-300 flex flex-col h-full group">
+            <div class="relative h-60 overflow-hidden bg-gray-100">
+              <img src="./เมนูร้าน/44318093_775478239458207_3282462492936110080_n.jpg" alt="ขนมปังปิ้งราดช็อกโกแลต" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+              <span class="absolute top-3 right-3 bg-emerald-600 text-white text-xs font-semibold px-3 py-1 rounded-full shadow">
+                เริ่มต้น 12.-
+              </span>
+            </div>
+            <div class="p-5 flex-1 flex flex-col justify-between">
+              <div>
+                <span class="text-xs font-medium text-amber-700 bg-amber-50 px-2 py-0.5 rounded-md">ขายดีอันดับ 1</span>
+                <h3 class="text-lg font-bold text-gray-900 mt-2">ปังปิ้งราดช็อกโกแลต</h3>
+                <p class="text-xs text-gray-500 font-light mt-1">ขนมปังปิ้งเตาหอมกรุ่น ปาดเนยสดแท้ ราดด้วยซอสช็อกโกแลตเข้มข้นเยิ้มๆ ฟินทุกคำ</p>
+              </div>
+              <div class="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between text-xs text-gray-500">
+                <span>กรอบนอก นุ่มใน</span>
+                <span class="font-bold text-gray-900">12 - 20 บาท</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 4: ปังปิ้งไมโลนมข้น -->
+        <div class="menu-card" data-category="toast">
+          <div class="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition duration-300 flex flex-col h-full group">
+            <div class="relative h-60 overflow-hidden bg-gray-100">
+              <img src="./เมนูร้าน/493540617_2527023530970327_8570458719034524791_n.jpg" alt="ปังปิ้งผงไมโลนมข้น" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+              <span class="absolute top-3 right-3 bg-emerald-600 text-white text-xs font-semibold px-3 py-1 rounded-full shadow">
+                เริ่มต้น 15.-
+              </span>
+            </div>
+            <div class="p-5 flex-1 flex flex-col justify-between">
+              <div>
+                <span class="text-xs font-medium text-yellow-700 bg-yellow-50 px-2 py-0.5 rounded-md">รสชาติวัยเด็ก</span>
+                <h3 class="text-lg font-bold text-gray-900 mt-2">ปังปิ้งไมโลนมข้นหวาน</h3>
+                <p class="text-xs text-gray-500 font-light mt-1">ขนมปังชิ้นหนา โรยผงไมโลแบบจัดเต็ม ตัดด้วยนมข้นหวานหยาดเยิ้ม รสชาติเข้มข้นถึงใจ</p>
+              </div>
+              <div class="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between text-xs text-gray-500">
+                <span>โรยผงไมโลเน้นๆ</span>
+                <span class="font-bold text-gray-900">15 - 20 บาท</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 5: ปังเย็นภูเขาไฟ -->
+        <div class="menu-card" data-category="toast">
+          <div class="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition duration-300 flex flex-col h-full group">
+            <div class="relative h-60 overflow-hidden bg-gray-100">
+              <img src="./เมนูร้าน/492846847_2529634777375869_7035050521733813971_n.jpg" alt="ปังเย็นภูเขาไฟชามยักษ์" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+              <span class="absolute top-3 right-3 bg-brand-600 text-white text-xs font-semibold px-3 py-1 rounded-full shadow">
+                ยอดฮิตสำหรับแชร์
+              </span>
+            </div>
+            <div class="p-5 flex-1 flex flex-col justify-between">
+              <div>
+                <span class="text-xs font-medium text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded-md">เหมาะกับแก๊งเพื่อน</span>
+                <h3 class="text-lg font-bold text-gray-900 mt-2">ปังเย็นภูเขาไฟชามยักษ์</h3>
+                <p class="text-xs text-gray-500 font-light mt-1">เกล็ดหิมะนมรสเข้มข้น รองด้วยขนมปังนุ่มๆ ท็อปปิ้งด้วยคอร์นเฟลก เวเฟอร์โรล และซอสฉ่ำๆ</p>
+              </div>
+              <div class="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between text-xs text-gray-500">
+                <span>ทานได้ 2-3 ท่าน</span>
+                <span class="font-bold text-gray-900">35 - 45 บาท</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 6: ของทอดทานเล่น (นักเก็ต & เกี๊ยวกรอบ) -->
+        <div class="menu-card" data-category="snack">
+          <div class="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition duration-300 flex flex-col h-full group">
+            <div class="relative h-60 overflow-hidden bg-gray-100">
+              <img src="./เมนูร้าน/44342331_775477832791581_5534039281854578688_n.jpg" alt="นักเก็ตไก่และเกี๊ยวกรอบ" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+              <span class="absolute top-3 right-3 bg-amber-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow">
+                ทอดใหม่ร้อนๆ
+              </span>
+            </div>
+            <div class="p-5 flex-1 flex flex-col justify-between">
+              <div>
+                <span class="text-xs font-medium text-amber-600 bg-amber-50 px-2 py-0.5 rounded-md">ของทานเล่น</span>
+                <h3 class="text-lg font-bold text-gray-900 mt-2">นักเก็ตไก่ & เกี๊ยวกรอบ</h3>
+                <p class="text-xs text-gray-500 font-light mt-1">ทอดใหม่จานต่อจาน สีเหลืองทอง กรอบนอกนุ่มใน เสิร์ฟพร้อมน้ำจิ้มบ๊วยหรือซอสมะเขือเทศ</p>
+              </div>
+              <div class="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between text-xs text-gray-500">
+                <span>ทานเล่นเพลินๆ</span>
+                <span class="font-bold text-gray-900">29 - 39 บาท</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 7: เฟรนช์ฟรายส์ดิป 3 ช่อง -->
+        <div class="menu-card" data-category="snack">
+          <div class="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition duration-300 flex flex-col h-full group">
+            <div class="relative h-60 overflow-hidden bg-gray-100">
+              <img src="./เมนูร้าน/492942909_2528367987502548_811911000064678643_n.jpg" alt="เฟรนช์ฟรายส์ดิปซอส" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+              <span class="absolute top-3 right-3 bg-amber-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow">
+                ดิป 3 รส
+              </span>
+            </div>
+            <div class="p-5 flex-1 flex flex-col justify-between">
+              <div>
+                <span class="text-xs font-medium text-amber-600 bg-amber-50 px-2 py-0.5 rounded-md">ของทานเล่น</span>
+                <h3 class="text-lg font-bold text-gray-900 mt-2">เฟรนช์ฟรายส์ถาดใหญ่</h3>
+                <p class="text-xs text-gray-500 font-light mt-1">เฟรนช์ฟรายส์ทอดกรอบชิ้นยาว เสิร์ฟพร้อมถาดดิป 3 ช่อง (ซอสมะเขือเทศ, มาโย, ซอสพริก) ถูกใจทุกคน</p>
+              </div>
+              <div class="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between text-xs text-gray-500">
+                <span>จานโปรดยอดฮิต</span>
+                <span class="font-bold text-gray-900">35 - 45 บาท</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 8: อิตาเลียนโซดา & เมนูชงเย็น -->
+        <div class="menu-card" data-category="drinks">
+          <div class="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition duration-300 flex flex-col h-full group">
+            <div class="relative h-60 overflow-hidden bg-gray-100">
+              <img src="./บรรยากาศในร้าน/494147542_2529628654043148_5498278050551664507_n.jpg" alt="เครื่องดื่มและขนมทานคู่" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+              <span class="absolute top-3 right-3 bg-brand-600 text-white text-xs font-semibold px-3 py-1 rounded-full shadow">
+                แก้วละ 25.-
+              </span>
+            </div>
+            <div class="p-5 flex-1 flex flex-col justify-between">
+              <div>
+                <span class="text-xs font-medium text-sky-600 bg-sky-50 px-2 py-0.5 rounded-md">สดชื่น ซาบซ่า</span>
+                <h3 class="text-lg font-bold text-gray-900 mt-2">อิตาเลียนโซดา & คิทแคท</h3>
+                <p class="text-xs text-gray-500 font-light mt-1">เครื่องดื่มโซดารสผลไม้เปรี้ยวซ่าชื่นใจ ดับร้อนยามค่ำคืน หรือจะสั่งทานคู่เวเฟอร์ช็อกโกแลตฟินๆ</p>
+              </div>
+              <div class="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between text-xs text-gray-500">
+                <span>ซ่าสดชื่น ดับกระหาย</span>
+                <span class="font-bold text-gray-900">25 บาท</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Price Board Summary Callout -->
+      <div class="mt-12 bg-white rounded-3xl p-6 sm:p-8 border border-brand-200/60 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4 text-center sm:text-left">
+          <div class="w-12 h-12 rounded-2xl bg-brand-50 text-brand-600 flex items-center justify-center shrink-0">
+            <i data-lucide="receipt" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-gray-900 text-lg">ตารางราคามาตรฐานหน้าร้าน</h4>
+            <p class="text-sm text-gray-500 font-light">นมสด ร้อน 20.- | เย็น 25.- | ปั่น 30.- | อิตาเลียนโซดา 25.- | ขนมปังปิ้งเริ่มต้น 12.-</p>
+          </div>
+        </div>
+        <div class="text-xs text-gray-400 bg-gray-50 px-4 py-2 rounded-xl">
+          * มีหน้าท็อปปิ้งและไส้ให้เลือกอีกเพียบที่หน้าร้าน
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= ATMOSPHERE & GALLERY ================= -->
+  <section id="atmosphere" class="py-20 bg-gray-900 text-white relative overflow-hidden">
+    <!-- Glow effects -->
+    <div class="absolute top-0 right-1/4 w-96 h-96 bg-brand-500/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-0 left-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="text-center max-w-2xl mx-auto space-y-3 mb-16">
+        <span class="text-amber-400 font-semibold text-sm uppercase tracking-wider">Store Atmosphere</span>
+        <h2 class="text-3xl sm:text-4xl font-bold">บรรยากาศยามค่ำคืน แสงไฟ & รอยยิ้ม</h2>
+        <p class="text-gray-400 font-light">พื้นที่เปิดโล่ง สบายๆ ใต้แสงไฟปิงปองสีอบอุ่น ไม่ว่าจะมาเดี่ยว มาคู่ หรือมาเป็นแก๊ง ก็ลงตัว</p>
+      </div>
+
+      <!-- Photo Gallery Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+        
+        <!-- Large Card 1: Shop Front Night Vibe -->
+        <div class="md:col-span-7 group relative rounded-3xl overflow-hidden h-80 sm:h-96 shadow-lg">
+          <img src="./บรรยากาศในร้าน/493940943_2527267730945907_8741123150059989016_n.jpg" alt="หน้าร้านเปรม นมสด ตอนกลางคืน" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex flex-col justify-end p-6 sm:p-8">
+            <span class="text-amber-400 text-xs font-semibold uppercase tracking-wider mb-1">หน้าร้านต้อนรับ</span>
+            <h3 class="text-xl sm:text-2xl font-bold">ร้านโปร่ง โต๊ะไม้ ชิลล์ใต้แสงไฟ</h3>
+            <p class="text-sm text-gray-300 font-light mt-1">ป้ายกระดานดำบอกเมนูและราคาชัดเจน สั่งง่าย นั่งสบาย ลมเย็นตลอดคืน</p>
+          </div>
+        </div>
+
+        <!-- Card 2: Student Group Hangout -->
+        <div class="md:col-span-5 group relative rounded-3xl overflow-hidden h-80 sm:h-96 shadow-lg">
+          <img src="./บรรยากาศในร้าน/492549908_2527277360944944_1235157329857653281_n.jpg" alt="แก๊งเพื่อนสังสรรค์ที่ร้านเปรม นมสด" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex flex-col justify-end p-6 sm:p-8">
+            <span class="text-brand-400 text-xs font-semibold uppercase tracking-wider mb-1">Community & Friendship</span>
+            <h3 class="text-xl sm:text-2xl font-bold">ที่นัดพบของเพื่อนๆ</h3>
+            <p class="text-sm text-gray-300 font-light mt-1">โต๊ะยาวรองรับกลุ่มใหญ่ สังสรรค์ คุยเรื่องเรียน หรือเล่นดนตรีเบาๆ</p>
+          </div>
+        </div>
+
+        <!-- Card 3: Wide Outdoor Seating -->
+        <div class="md:col-span-5 group relative rounded-3xl overflow-hidden h-80 shadow-lg">
+          <img src="./บรรยากาศในร้าน/461514505_2344750892530926_8616067714999523478_n.jpg" alt="โซนที่นั่ง Outdoor และไฟปิงปอง" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex flex-col justify-end p-6">
+            <span class="text-emerald-400 text-xs font-semibold uppercase tracking-wider mb-1">Outdoor Zone</span>
+            <h3 class="text-lg font-bold">มุมสบายใต้ร่มเงาไม้</h3>
+            <p class="text-xs text-gray-300 font-light mt-1">ที่จอดรถหน้าร้านสะดวกสบาย เดินทางง่าย</p>
+          </div>
+        </div>
+
+        <!-- Card 4: Warm Lights and Anime Chalkboard Art -->
+        <div class="md:col-span-7 group relative rounded-3xl overflow-hidden h-80 shadow-lg">
+          <img src="./เมนูร้าน/492942909_2528367987502548_811911000064678643_n.jpg" alt="มุมถ่ายรูปกระดานดำอนิเมะ Your Name" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex flex-col justify-end p-6">
+            <span class="text-pink-400 text-xs font-semibold uppercase tracking-wider mb-1">Photo Corner</span>
+            <h3 class="text-lg font-bold">มุมถ่ายรูปเก๋ๆ กับกระดานดำ</h3>
+            <p class="text-xs text-gray-300 font-light mt-1">วาดภาพอนิเมะสุดน่ารัก ถ่ายรูปเช็คอินอวดเพื่อนในโซเชียลได้ทันที</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= OPENING HOURS, MAP & FACEBOOK ================= -->
+  <section id="map-section" class="py-20 bg-white">
+    <!-- Anchor for backward compatibility -->
+    <div id="info"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Title -->
+      <div class="text-center max-w-2xl mx-auto space-y-3 mb-16">
+        <span class="text-brand-600 font-semibold text-sm uppercase tracking-wider">Location & Contact</span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900">เวลาเปิด-ปิด, แผนที่ & ช่องทางติดต่อ</h2>
+        <p class="text-gray-500 font-light">แวะมาเติมความสุขยามค่ำคืน หรือติดตามข่าวสารโปรโมชั่นได้ที่เพจ Facebook</p>
+      </div>
+
+      <!-- Top Overview Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+        
+        <!-- Card 1: Hours -->
+        <div class="bg-gradient-to-br from-amber-50 to-orange-50/40 p-6 rounded-3xl border border-amber-100 flex items-start gap-4">
+          <div class="w-12 h-12 rounded-2xl bg-amber-500 text-white flex items-center justify-center shrink-0 shadow-md shadow-amber-500/20">
+            <i data-lucide="clock" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <span class="text-xs font-semibold text-amber-700 bg-amber-100/70 px-2.5 py-0.5 rounded-full">เปิดบริการทุกวัน</span>
+            <h3 class="text-lg font-bold text-gray-900 mt-1">17:00 – 22:00 น.</h3>
+            <p class="text-xs text-gray-600 font-light mt-0.5">ช่วงเวลาแห่งความผ่อนคลาย จิบชา นมสดอุ่นๆ ขนมปังปิ้งเตาร้อน</p>
+          </div>
+        </div>
+
+        <!-- Card 2: Location -->
+        <div class="bg-gradient-to-br from-sky-50 to-brand-50/40 p-6 rounded-3xl border border-sky-100 flex items-start gap-4">
+          <div class="w-12 h-12 rounded-2xl bg-brand-600 text-white flex items-center justify-center shrink-0 shadow-md shadow-brand-500/20">
+            <i data-lucide="map-pin" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <span class="text-xs font-semibold text-brand-700 bg-brand-100/70 px-2.5 py-0.5 rounded-full">พิกัดร้าน</span>
+            <h3 class="text-lg font-bold text-gray-900 mt-1">ถนนจิระ อำเภอเมือง</h3>
+            <p class="text-xs text-gray-600 font-light mt-0.5">จ.บุรีรัมย์ ย่านใจกลางเมือง มีที่จอดรถมอเตอร์ไซค์หน้าร้านสะดวกสบาย</p>
+          </div>
+        </div>
+
+        <!-- Card 3: Facebook Community -->
+        <div class="bg-gradient-to-br from-blue-50 to-indigo-50/40 p-6 rounded-3xl border border-blue-100 flex items-start gap-4">
+          <div class="w-12 h-12 rounded-2xl bg-[#1877F2] text-white flex items-center justify-center shrink-0 shadow-md shadow-blue-500/20">
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </div>
+          <div>
+            <span class="text-xs font-semibold text-blue-700 bg-blue-100/70 px-2.5 py-0.5 rounded-full">Official Facebook</span>
+            <h3 class="text-lg font-bold text-gray-900 mt-1">เปรม นมสด</h3>
+            <p class="text-xs text-gray-600 font-light mt-0.5">พูดคุย เช็คอิน และติดตามเมนูใหม่ทาง Facebook Page</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Main Interactive Grid: Map + Facebook Fanpage -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        
+        <!-- Left: Interactive Google Map (7 cols) -->
+        <div class="lg:col-span-7 bg-[#fafaf9] rounded-3xl overflow-hidden border border-gray-200 shadow-lg flex flex-col">
+          <div class="p-5 bg-white border-b border-gray-100 flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-xl bg-rose-50 text-rose-500 flex items-center justify-center">
+                <i data-lucide="map" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-gray-900 text-sm">แผนที่ตั้งร้าน เปรม นมสด</h4>
+                <p class="text-xs text-gray-500 font-light">ถนนจิระ ตำบลในเมือง อำเภอเมืองบุรีรัมย์ บุรีรัมย์</p>
+              </div>
+            </div>
+            <!-- Open in Google Maps Button -->
+            <a href="https://www.google.com/maps/search/?api=1&query=เปรม+นมสด+ถนนจิระ+บุรีรัมย์" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 bg-gray-100 hover:bg-brand-50 hover:text-brand-600 text-gray-700 text-xs font-medium px-3.5 py-2 rounded-xl transition border border-gray-200">
+              <i data-lucide="navigation" class="w-3.5 h-3.5 text-brand-600"></i>
+              <span>เปิด Google Maps (นำทาง)</span>
+            </a>
+          </div>
+
+          <!-- Embedded Map -->
+          <div class="w-full flex-1 min-h-[360px] relative bg-gray-100">
+            <iframe 
+              title="แผนที่ร้าน เปรม นมสด บุรีรัมย์"
+              class="w-full h-full min-h-[360px] border-0"
+              src="https://maps.google.com/maps?q=ถนนจิระ+อำเภอเมืองบุรีรัมย์+บุรีรัมย์&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+
+        <!-- Right: Official Facebook Fanpage Card (5 cols) -->
+        <div class="lg:col-span-5 bg-white rounded-3xl overflow-hidden border border-blue-100 shadow-xl flex flex-col justify-between">
+          
+          <!-- Card Top: Facebook Branded Banner -->
+          <div class="bg-gradient-to-r from-[#1877F2] to-[#0d59c2] p-6 text-white relative overflow-hidden">
+            <div class="absolute -right-4 -bottom-4 opacity-10">
+              <svg class="w-40 h-40 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </div>
+            <div class="relative z-10 flex items-center justify-between">
+              <div class="flex items-center gap-2 text-xs font-medium uppercase tracking-wider bg-white/20 px-3 py-1 rounded-full backdrop-blur-sm">
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                <span>Facebook Fanpage</span>
+              </div>
+              <span class="text-xs bg-emerald-500 text-white font-medium px-2.5 py-0.5 rounded-full">ออนไลน์</span>
+            </div>
+
+            <!-- Profile Info -->
+            <div class="relative z-10 mt-6 flex items-center gap-4">
+              <div class="relative w-16 h-16 rounded-full overflow-hidden ring-4 ring-white/30 shadow-lg bg-white shrink-0">
+                <img src="./logo.png" alt="โลโก้ เปรม นมสด" class="w-full h-full object-cover">
+              </div>
+              <div>
+                <div class="flex items-center gap-1.5">
+                  <h3 class="text-xl font-bold tracking-tight">เปรม นมสด</h3>
+                  <i data-lucide="check-circle-2" class="w-4 h-4 text-sky-200 fill-sky-400"></i>
+                </div>
+                <p class="text-xs text-blue-100 font-light mt-0.5">ร้านนมสด & ขนมปังปิ้ง ยามค่ำคืน</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card Body: Description & Quick Stats -->
+          <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+            <div class="space-y-3">
+              <p class="text-sm text-gray-600 font-light leading-relaxed">
+                ติดตามข่าวสาร เมนูพิเศษประจำเทศกาล กิจกรรมดนตรี และบรรยากาศร้านสดใหม่ทุกวันได้ทาง Facebook Page อย่างเป็นทางการ
+              </p>
+
+              <div class="space-y-2 pt-1 text-xs text-gray-600">
+                <div class="flex items-center gap-2">
+                  <i data-lucide="bell" class="w-4 h-4 text-amber-500"></i>
+                  <span>อัปเดตประกาศวันหยุด & เมนูพิเศษก่อนใคร</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <i data-lucide="camera" class="w-4 h-4 text-pink-500"></i>
+                  <span>แท็กรูปภาพ เช็คอิน & แชร์ความอร่อยกับเพื่อน</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <i data-lucide="message-circle" class="w-4 h-4 text-blue-500"></i>
+                  <span>ส่งข้อความสอบถามเส้นทางหรือจองโต๊ะกลุ่มได้ทาง Inbox</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Facebook CTA Button -->
+            <div class="pt-4 border-t border-gray-100">
+              <a href="https://www.facebook.com/search/top?q=เปรม%20นมสด" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center gap-3 bg-[#1877F2] hover:bg-[#0c63d4] text-white py-3.5 px-6 rounded-2xl font-medium shadow-lg shadow-blue-500/25 transition transform hover:-translate-y-0.5 group">
+                <svg class="w-5 h-5 fill-current group-hover:scale-110 transition" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                <span class="text-base font-semibold">ไปยังหน้าเพจ Facebook: เปรม นมสด</span>
+              </a>
+              <p class="text-center text-[11px] text-gray-400 mt-2 font-light">
+                * คลิกเพื่อเปิดหน้าเพจ Facebook เปรม นมสด ในแท็บใหม่
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-gray-900 text-gray-400 py-12 border-t border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        
+        <!-- Brand Info -->
+        <div class="flex items-center gap-3">
+          <img src="./logo.png" alt="เปรม นมสด" class="w-10 h-10 rounded-full object-cover ring-1 ring-gray-700">
+          <div>
+            <div class="text-white font-bold text-lg">เปรม นมสด</div>
+            <p class="text-xs text-gray-500 font-light">จุดนัดพบความสุข นมสด ขนมปังปิ้ง และมิตรภาพ</p>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="flex flex-wrap justify-center items-center gap-6 text-sm">
+          <a href="#home" class="hover:text-white transition">หน้าแรก</a>
+          <a href="#highlights" class="hover:text-white transition">จุดเด่น</a>
+          <a href="#menu" class="hover:text-white transition">เมนูอาหาร</a>
+          <a href="#atmosphere" class="hover:text-white transition">บรรยากาศร้าน</a>
+          <a href="#map-section" class="hover:text-white transition">แผนที่ & ติดต่อ</a>
+          <a href="https://www.facebook.com/search/top?q=เปรม%20นมสด" target="_blank" rel="noopener noreferrer" class="hover:text-blue-400 text-gray-300 transition flex items-center gap-1.5 bg-gray-800 hover:bg-gray-700 px-3 py-1.5 rounded-full text-xs">
+            <svg class="w-3.5 h-3.5 fill-[#1877F2]" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            <span>Facebook Page</span>
+          </a>
+        </div>
+
+        <!-- Copyright -->
+        <div class="text-xs text-gray-500 text-center md:text-right">
+          <p>© 2026 เปรม นมสด (Prem Nomsod). All rights reserved.</p>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= JAVASCRIPT ================= -->
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // Menu Category Filter
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const menuCards = document.querySelectorAll('.menu-card');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Toggle button styling
+        filterButtons.forEach(b => {
+          b.classList.remove('bg-brand-600', 'text-white');
+          b.classList.add('bg-white', 'text-gray-700');
+        });
+        btn.classList.remove('bg-white', 'text-gray-700');
+        btn.classList.add('bg-brand-600', 'text-white');
+
+        const filter = btn.getAttribute('data-filter');
+
+        // Filter cards
+        menuCards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          if (filter === 'all' || category === filter) {
+            card.style.display = 'block';
+            card.classList.add('animate-fadeIn');
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
