@@ -1,8 +1,8 @@
-# เปรม นมสด (Prem Nomsod) - Landing Page 🥛🍞
+﻿# มิดไนท์ นมสด (Midnight Milk) - Landing Page 🥛🍞
 
-Landing Page สำหรับร้าน **"เปรม นมสด"** ร้านนมสด ขนมปังปิ้งเตาร้อน และของทานเล่นยามค่ำคืน
+Landing Page สำหรับร้าน **"มิดไนท์ นมสด"** ร้านนมสด ขนมปังปิ้งเตาร้อน และของทานเล่นยามค่ำคืน
 
-![เปรม นมสด](./logo.png)
+![มิดไนท์ นมสด](./logo.png)
 
 ## 📌 จุดเด่นของหน้าเว็บ
 - **Responsive Web Design**: รองรับการแสดงผลทั้งบน Desktop, Tablet และ Smartphone
